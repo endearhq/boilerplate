@@ -1,0 +1,19 @@
+{
+  "module": {
+    "type": "commonjs"
+  },
+  "sourceMaps": true,
+  "exclude": ["^(.+)\\.d\\.ts$"],
+  "jsc": {
+    "target": "es2021",
+    "externalHelpers": true,
+    "parser": {
+      "syntax": "typescript",
+      "decorators": true
+    },
+    "transform": {
+      "legacyDecorator": true,
+      "decoratorMetadata": true
+    }
+  }
+}

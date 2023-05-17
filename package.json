@@ -1,0 +1,56 @@
+{
+  "name": "@endearhq/boilerplate",
+  "version": "2.0.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/endearhq/boilerplate.git"
+  },
+  "license": "UNLICENSED",
+  "author": "Endear <dev@endearhq.com>",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "publish": "changeset publish --registry https://npm.pkg.github.com && pnpm install --offline",
+    "publish:snapshot": "changeset publish --no-git-checks --registry https://npm.pkg.github.com",
+    "release": "changeset version && endear release && pnpm install --prefer-offline --no-frozen-lockfile",
+    "release:snapshot": "SNAPSHOT=true changeset version --snapshot && endear release && pnpm install --prefer-offline --no-frozen-lockfile",
+    "turbo:format": "turbo run format",
+    "turbo:lint": "turbo run lint",
+    "turbo:lint:fix": "turbo run lint:fix",
+    "turbo:test": "turbo run test",
+    "turbo:typecheck": "turbo run typecheck"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "0.4.8",
+    "@changesets/cli": "2.26.0",
+    "@typescript-eslint/eslint-plugin": "5.46.1",
+    "@typescript-eslint/parser": "5.46.1",
+    "concurrently": "7.6.0",
+    "danger": "11.2.3",
+    "eslint": "8.30.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "nodemon": "2.0.20",
+    "prettier": "2.8.3",
+    "turbo": "1.7.0",
+    "typescript": "4.7.3",
+    "zx": "7.0.0"
+  },
+  "packageManager": "pnpm@7.25.0",
+  "engines": {
+    "node": "16.x"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@firebase/app-types"
+      ]
+    }
+  },
+  "volta": {
+    "node": "16.17.1"
+  }
+}

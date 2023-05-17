@@ -1,0 +1,31 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "pipeline": {
+    "format": {
+      "dependsOn": [],
+      "outputs": ["src", "api"]
+    },
+    "typecheck": {
+      "dependsOn": ["^typecheck"],
+      "outputs": [
+        "lib/**",
+        "esm/**",
+        "cjs/**",
+        "build/**",
+        "tsconfig.tsbuildinfo"
+      ]
+    },
+    "test": {
+      "dependsOn": [],
+      "outputs": []
+    },
+    "lint": {
+      "dependsOn": [],
+      "outputs": [".eslintcache"]
+    },
+    "lint:fix": {
+      "dependsOn": [],
+      "outputs": ["src", "api", ".eslintcache"]
+    }
+  }
+}

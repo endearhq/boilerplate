@@ -1,0 +1,63 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "./lib/primary"
+  previewFeatures = ["extendedWhereUnique", "jsonProtocol"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("LOCAL_DB_URL")
+}
+
+model Brand {
+  id         String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  name       String
+  subdomain  String    @unique
+  roles      String    @default("")
+  created_at DateTime  @default(now()) @db.Timestamptz(3)
+  updated_at DateTime  @default(now()) @updatedAt @db.Timestamptz(3)
+  users      User[]    @relation("brand__to__users")
+  channels   Channel[] @relation("brand__to__channels")
+
+  @@map("brands")
+}
+
+model User {
+  id              String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  first_name      String
+  last_name       String
+  role            UserType
+  last_sign_in_at DateTime @default(now()) @db.Timestamptz(3)
+  created_at      DateTime @default(now()) @db.Timestamptz(3)
+  updated_at      DateTime @default(now()) @updatedAt @db.Timestamptz(3)
+  brand_id        String   @db.Uuid
+  brand           Brand    @relation("brand__to__users", fields: [brand_id], references: [id], onUpdate: NoAction, onDelete: NoAction)
+
+  @@map("users")
+}
+
+model Channel {
+  id          String            @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  type        ContactMethodType
+  external_id String
+  created_at  DateTime          @default(now()) @db.Timestamptz(3)
+  updated_at  DateTime          @default(now()) @updatedAt @db.Timestamptz(3)
+  brand_id    String            @db.Uuid
+  brand       Brand             @relation("brand__to__channels", fields: [brand_id], references: [id], onUpdate: NoAction, onDelete: NoAction)
+
+  @@index([external_id])
+  @@map("channels")
+}
+
+enum ContactMethodType {
+  Email @map("email")
+  Sms   @map("sms")
+
+  @@map("contact_method_type_enum")
+}
+
+enum UserType {
+  admin   @map("admin")
+  manager @map("manager")
+  user    @map("user")
+}

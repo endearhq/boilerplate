@@ -1,0 +1,31 @@
+# Dependency directories
+node_modules
+
+# Cache
+.dccache
+.cache
+*.tsbuildinfo
+.next
+.test_artifacts
+.turbo
+.eslintcache
+tmp
+.local
+.vercel
+
+# Tests
+coverage 
+*.sarif
+pubsub-emulator.json
+
+# Secrets
+.env
+.env.*
+service-account.json
+service-account.*.json
+
+# System
+.DS_Store
+
+# Logs
+*.log

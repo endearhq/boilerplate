@@ -1,0 +1,41 @@
+name: test-workflow
+
+on:
+  workflow_call:
+    inputs:
+      lfs:
+        required: false
+        type: boolean
+        default: false
+    secrets:
+      github_packages_token:
+        required: true
+      turbo_token:
+        required: true
+
+jobs:
+  test:
+    name: test-workflow
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          lfs: ${{ inputs.lfs }}
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.x
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: pnpm
+          registry-url: "https://npm.pkg.github.com"
+      - run: pnpm install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.github_packages_token }}
+
+      - name: Test
+        run: pnpm exec turbo run test
+        env:
+          TURBO_TOKEN: ${{ secrets.turbo_token }}

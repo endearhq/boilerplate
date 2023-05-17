@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "lib": ["es2020"],
+    "strict": true,
+    "skipLibCheck": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "importsNotUsedAsValues": "error",
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "composite": false,
+    "declaration": true,
+    "incremental": false,
+    "rootDir": "src",
+    "outDir": "lib",
+    "baseUrl": ".",
+    "noEmit": true
+  },
+  "exclude": ["**/node_modules/*"],
+  "include": ["./src/**/*"]
+}
