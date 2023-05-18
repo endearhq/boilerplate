@@ -32,13 +32,14 @@ const MessagesBody = t.Record({
   ids: t.Array(t.String),
 });
 
+// example request: /api/messages?ids=foo&ids=bar
 fastify.get("/api/messages", {
   async handler(request, reply) {
-    const body = MessagesBody.validate(request.body);
-    if (!body.success) {
+    const query = MessagesBody.validate(request.query);
+    if (!query.success) {
       reply.status(400).send({ error: "VALIDATION_FAILED" });
     } else {
-      const { ids } = body.value;
+      const { ids } = query.value;
 
       const messages = await fetchMessages({ ids });
 

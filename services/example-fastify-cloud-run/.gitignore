@@ -1,1 +1,6 @@
 lib
+query-engine-*
+lib/integrations
+lib/primary
+src/integrations
+src/primary

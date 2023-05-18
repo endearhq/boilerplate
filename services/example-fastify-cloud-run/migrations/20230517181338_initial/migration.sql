@@ -1,3 +1,6 @@
+-- Create UUID extension
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 -- CreateEnum
 CREATE TYPE "contact_method_type_enum" AS ENUM ('email', 'sms');
 

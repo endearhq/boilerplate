@@ -20,4 +20,3 @@ export const PORT = 7777;
 export const ADDRESS = IS_GOOGLE_CLOUD ? "0.0.0.0" : "127.0.0.1";
 
 export const GCP_SERVICE_ACCOUNT = getEnv("GCP_SERVICE_ACCOUNT");
-// export const GCP_SERVICE_ACCOUNT = getEnv("GCP_SERVICE_ACCOUNT");

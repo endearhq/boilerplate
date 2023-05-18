@@ -35,7 +35,6 @@ function initializeFirebaseApp(
   // Necessary for Vercel, where the `if(!app)` may not be
   // sufficient to contrain to a singleton
   const existing = firebase.apps.find((a) => a?.name === name);
-
   if (existing) {
     return existing;
   } else if (params) {
@@ -53,7 +52,7 @@ function initializeFirebaseApp(
 
     if (serviceAccount) {
       return firebase.initializeApp(
-        { credential: firebase.credential.cert(JSON.parse(serviceAccount)) },
+        { credential: firebase.credential.cert(serviceAccount) },
         name,
       );
     } else if (googleApplicationCredentials) {

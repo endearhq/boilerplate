@@ -15,6 +15,8 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,css,scss}\"",
     "lint": "eslint --cache --max-warnings 0 --ext .tsx,.ts src/",
     "lint:fix": "eslint --fix --max-warnings 0 --ext .tsx,.ts src/",
+    "migrate": "prisma migrate dev",
+    "postinstall": "node scripts/generate.mjs",
     "start": "node lib/index.js",
     "test": "vitest run",
     "test:watch": "vitest",
