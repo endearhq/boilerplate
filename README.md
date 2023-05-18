@@ -1,4 +1,7 @@
-# boilerplate
+# dev-ops-tech-evaluation
+^ this should probably be more descriptive than boilerplate.
+
+{some description of the dev ops tech evaluation exercise in 2-3 sentences}
 
 ## Description
 
@@ -17,12 +20,29 @@ For this assessment, we want to create a github action that is responsible for t
 ## Considerations:
 
 - [] Should be scalable for multiple developers with simultaneous PRs
-- [] Seeding data matching the prisma schema found in `services/example-fastify-cloud-run/schema.prisma`
+- [] Seeding data matching the prisma schema found in `services/example-fastify-cloud-run/schema.prisma` {We should provide a raw open source dataset if possible}
 - [] Seeding data into firebase matching the schema found in `libraries/example-messaging-lib/src/index.ts`
 - [] Testing the following routes from `services/example-fastify-cloud-run/src/index.ts`:
   - [] `/api/create_message`
   - [] `/api/create_user`
   - [] `/api/messages`
+
+## How We Will Be Evaluating You:
+
+{Some bulletpoints about what is important to us}
+
+-   Functionality
+-   Scalability
+-   Clarity
+-   Ability to make small commits with good commit messages
+-   Etc.
+
+## Getting Started
+
+{To run this locally you will need to ...}
+
+-   Run `pnpm install`
+-   Etc.
 
 ## Setting Up with Firebase:
 
