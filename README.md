@@ -26,7 +26,9 @@ For this assessment, we want to create a github action that is responsible for t
 
 ## Setting Up with Firebase:
 
-1. From `https://console.firebase.google.com/`, you can create a new project
+You need to create a new Firebasae account to complete this exercise. This project expects a `service-account.json` to provide a private key to access your Firebase. It also expects an environment variable called `GCP_SERVICE_ACCOUNT` to be set. Follow these steps to get this setup.
+
+1. From `https://console.firebase.google.com/`, you can create a new project [link to Google's setup instructions]()
 
 2. Complete all three steps
 
